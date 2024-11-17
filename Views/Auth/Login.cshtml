@@ -1,0 +1,39 @@
+@model WebApp.Models.Login
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card shadow-lg" style="max-width: 400px; width: 100%;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Login</h2>
+            <form asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label asp-for="Eml" class="form-label">Email</label>
+                    <input asp-for="Eml" type="email" class="form-control" required />
+                    <span asp-validation-for="Eml" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Pwd" class="form-label">Password</label>
+                    <input asp-for="Pwd" type="password" class="form-control" required />
+                    <span asp-validation-for="Pwd" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input asp-for="Rem" type="checkbox" class="form-check-input" />
+                    <label asp-for="Rem" class="form-check-label">Remember Me</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <a href="/Auth/ForgotPassword">Forgot Password?</a>
+                    <a href="/Auth/ChangePassword">ChangePassword</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <p class="text-center mt-3">
+                Don't have an account? <a asp-action="Register">Register here</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
